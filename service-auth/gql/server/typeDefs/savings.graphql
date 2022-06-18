@@ -1,0 +1,12 @@
+type DepositResult {
+  result: String!
+}
+
+type WithdrawResult {
+  result: String!
+}
+
+type Mutation {
+  deposit(amount: Float!): DepositResult
+  withdraw(amount: Float!): WithdrawResult
+}

@@ -1,0 +1,25 @@
+version: "2"
+services:
+  auth-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9998:9998"
+    volumes:
+      - .:/usr/src/app/auth
+  
+  database-saving:
+    # Official Postgres image from DockerHub (we use the last version)
+    image: 'postgres:latest'
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_MULTIPLE_DATABASES: auth_database, savings_database
+      POSTGRES_USER: admin # The PostgreSQL user (useful to connect to the database)
+      POSTGRES_PASSWORD: 123 # The PostgreSQL password (useful to connect to the database)
+      # POSTGRES_DB: auth_database # The PostgreSQL default database (automatically created at first launch)
+    
+    volumes:
+      - ../docker-postgresql-multiple-databases:/docker-entrypoint-initdb.d
+      - ./db-data/:/var/lib/postgresql/data/

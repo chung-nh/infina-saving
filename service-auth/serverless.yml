@@ -1,0 +1,53 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: auth-service
+# app and org for use with dashboard.serverless.com
+app: saving
+org: chungnh
+
+provider:
+  name: aws
+  profile: saving
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'} # Set the default stage used. Default is dev
+  region: ${opt:region, 'ap-southeast-1'} # Overwrite the default region used. Default is ap-southeast-1
+  environment:
+    AWS_PROFILE: saving
+    SERVICE: ${self:service.name, 'auth-service'}
+    REGION: ${self:provider.region}
+    STAGE: ${self:provider.stage}
+
+package:
+  individually: true
+  excludeDevDependencies: true
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+custom:
+  webpack:
+    includeModules: true
+  serverless-offline:
+    useChildProcesses: true
+    host: 0.0.0.0
+    httpPort: 9998
+    printOutput: false
+  lambda:
+    host: 0.0.0.0
+    port: 9998
+
+functions:
+  - ${file(./functions/graphql/config.yml)}
