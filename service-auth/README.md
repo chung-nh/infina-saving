@@ -12,5 +12,5 @@ Databases:
 - auth_database, savings_database
 - username: admin, password: admin, 123
 
-See more detail at: /service-auth/docker-compose.yml, line 12-25.
+See more detail at: ./docker-compose.yml, line 12-25.
 
