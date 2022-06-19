@@ -16,5 +16,6 @@ infina.vn saving mini project
 - Postman
 
 ## Note:
-- Issue:  "Savings interest is calculated DAILY at 23:59:00 and added up to Saving’s balance." => Any deposit/withdraw from 23:59:01 to 23:59:59 will not calculate savings interest.
+- Issue:  "Savings interest is calculated DAILY at 23:59:00 and added up to Saving’s balance." => ![Let me know if you have any questions.
+]
 - Because of the time limit, this project was not include: database migration, some perfomance(noted by a comment in source code), code check, unit test, automation test, production environment setup guide.
