@@ -3,6 +3,6 @@
 npm install 
 node caculate-savings-interest.ts
 
-Crontab:
+# Server Crontab:
 
 59 23 * * * node caculate-savings-interest.ts 
