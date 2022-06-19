@@ -2,4 +2,4 @@
 infina.vn saving project
 
 ## Architecture
-![Architecture](./Saving Project Architecture.drawio.png?raw=true "Architecture")
+![Architecture](./Saving_Project_Architecture.drawio.png?raw=true "Architecture")
