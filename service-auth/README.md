@@ -11,5 +11,6 @@ endpoint: http://localhost:9998/dev/graphql
 Databases: 
 - auth_database, savings_database
 - username: admin, password: admin, 123
+
 See more detail at: /service-auth/docker-compose.yml, line 12-25.
 
