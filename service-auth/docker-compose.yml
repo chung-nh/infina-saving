@@ -23,3 +23,8 @@ services:
     volumes:
       - ../docker-postgresql-multiple-databases:/docker-entrypoint-initdb.d
       - ./db-data/:/var/lib/postgresql/data/
+
+networks: 
+  default: 
+    external: 
+      name: data-network 

@@ -1,10 +1,3 @@
-interface User {
-  id: number;
-  email: number;
-  password: boolean;
-  created_on: Date;
-}
-
 interface Savings {
   id: number;
   user_id: number;

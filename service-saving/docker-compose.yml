@@ -8,7 +8,15 @@ services:
       - "9999:9999"
     volumes:
       - .:/usr/src/app/saving
-  
+
+networks: 
+  default: 
+    external: 
+      name: data-network 
+
+    # depends_on:
+    #   - auth-service
+    #   - database-saving
   # database-saving:
   #   # Official Postgres image from DockerHub (we use the last version)
   #   image: 'postgres:latest'

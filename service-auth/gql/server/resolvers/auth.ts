@@ -13,7 +13,7 @@ const resolver = {
           const valid = await bcrypt.compare(password, user[0].password);
           if (valid) {
             const token = jwt.sign({
-              id: 2,
+              id: user[0].id,
               email: user[0].email
             }, SECURE_SECRET, { expiresIn: '1h' });
             return { result: token };
@@ -34,7 +34,6 @@ const resolver = {
     verifyToken: async (_: null, { token }: { token: string }) => {
       try {
         let tokenResult = jwt.verify(token, SECURE_SECRET);
-        console.log('tokenResult', tokenResult);
         return tokenResult;
       } catch (error) {
         throw new ApolloError(error);

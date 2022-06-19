@@ -5,17 +5,18 @@ const authenticationMiddleware = async ({ event }) => {
   try {
     if (
       event.body
-      && !event.body.includes("login")
-      && !event.body.includes("signup")
-      && !event.body.includes("verifyToken")
-      && !event.body.includes("logout")) {
+    ) {
       const data = await verifyJWTFromRequest(event);
-      return { id: (data && data.data && data.data.verifyToken) ? data.data.verifyToken.id : "" };
+      console.log('data', data);
+      if (data && data.data && !data.data.verifyToke) {
+        return { id: (data && data.data && data.data.verifyToken) ? data.data.verifyToken.id : "" };
+      } else {
+        throw new AuthenticationError("UnAuthentication");
+      }
     }
   } catch (err) {
     throw new AuthenticationError(err.message);
   }
 };
-
 
 export default authenticationMiddleware;

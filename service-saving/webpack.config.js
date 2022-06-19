@@ -1,6 +1,6 @@
-// const AWS = require("aws-sdk");
 const path = require("path");
 const slsw = require("serverless-webpack");
+
 async function config() {
   return {
     entry: slsw.lib.entries,
