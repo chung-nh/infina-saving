@@ -18,3 +18,4 @@ infina.vn saving mini project
 ## Note:
 - Issue:  "Savings interest is calculated DAILY at 23:59:00 and added up to Saving’s balance." => Any deposit/withdraw from 23:59:01 to 23:59:59 will not calculate savings interest.
 - Because of the time limit, this project was not include: database migration, some perfomance(noted by a comment in source code), code check, unit test, automation test, production environment setup guide.
+- No need a logout API because I used the JWT method  
